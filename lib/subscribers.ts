@@ -1,11 +1,12 @@
 /**
  * Módulo de gestión de suscriptores usando JSON en memoria.
  */
-type Subscriber = {
+export type Subscriber = {
   name: string;
   email: string;
   profession: string;
   interests: string[];
+  gdpr: true;
 };
 
 const db: Subscriber[] = [];

@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { addSubscriber } from '../../../lib/subscribers';
+import { addSubscriber, Subscriber } from '../../../lib/subscribers';
 import { z } from 'zod';
 
 const schema = z.object({
-  name: z.string(),
+  name: z.string().min(1),
   email: z.string().email(),
-  profession: z.string(),
+  profession: z.string().min(1),
   interests: z.array(z.string()),
   gdpr: z.literal(true),
 });
@@ -19,6 +19,9 @@ export async function POST(req: NextRequest) {
   if (!result.success) {
     return NextResponse.json({ error: 'invalid' }, { status: 400 });
   }
-  await addSubscriber(result.data);
+  
+  // Cast to Subscriber type since validation passed
+  const subscriberData = result.data as Subscriber;
+  await addSubscriber(subscriberData);
   return NextResponse.json({ ok: true });
 }
