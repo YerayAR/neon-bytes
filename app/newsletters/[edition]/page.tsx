@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { edition: string }
 
 export default async function Page({ params }: { params: { edition: string } }) {
   const meta = getEditionMeta(params.edition);
-  const Content = (await import(`../../../newsletters/${params.edition}.md`)).default;
+  const Content = (await import(`../../../newsletters/${params.edition}.mdx`)).default;
 
   return (
     <NewsletterPage meta={meta}>
