@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import FloatingBubbles from './FloatingBubbles';
+import MatrixRain from './MatrixRain';
 
 interface HeroProps {
   onSubscribeClick: () => void;
@@ -14,8 +14,8 @@ const Hero: FC<HeroProps> = ({ onSubscribeClick }) => (
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-pink-600/20 to-transparent opacity-25 pointer-events-none"></div>
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-600/20 to-transparent opacity-25 pointer-events-none"></div>
     
-    {/* Burbujas flotantes */}
-    <FloatingBubbles count={8} />
+    {/* Matrix Rain Effect */}
+    <MatrixRain intensity={0.6} color="#ff0080" />
     
     <div className="max-w-4xl mx-auto z-10 relative">
       <div className="mb-4">

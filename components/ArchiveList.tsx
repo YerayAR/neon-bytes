@@ -1,6 +1,5 @@
 'use client';
-import { FC, useEffect, useState, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import Card from './Card';
 import FloatingBubbles from './FloatingBubbles';
@@ -25,14 +24,8 @@ const itemAnim = {
 };
 
 const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const param = searchParams.get('type') || 'all';
-
-  const [type, setType] = useState(param);
+  const [type, setType] = useState('all');
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => setType(param), [param]);
 
   const types = Array.from(new Set(items.map((i) => i.type)));
   const counts: Record<string, number> = {};
@@ -45,10 +38,6 @@ const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
   const handleChange = (value: string) => {
     setLoading(true);
     setType(value);
-    const params = new URLSearchParams(searchParams.toString());
-    if (value === 'all') params.delete('type');
-    else params.set('type', value);
-    router.replace('?' + params.toString(), { scroll: false });
     setTimeout(() => setLoading(false), 300);
   };
 
@@ -125,10 +114,4 @@ const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
   );
 };
 
-const ArchiveListWrapper: FC<ArchiveListProps> = ({ items }) => (
-  <Suspense fallback={<div className="text-center py-12"><div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div></div>}>
-    <ArchiveList items={items} />
-  </Suspense>
-);
-
-export default ArchiveListWrapper;
+export default ArchiveList;

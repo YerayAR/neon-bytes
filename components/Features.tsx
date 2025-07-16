@@ -29,7 +29,11 @@ const Features: FC<FeaturesProps> = ({ items }) => (
     </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
       {items.map((f, idx) => (
-        <Link key={idx} href={`/?type=${f.type}#articles`} className="group">
+        <button 
+          key={idx} 
+          onClick={() => document.getElementById('articles')?.scrollIntoView({ behavior: 'smooth' })} 
+          className="group"
+        >
           <div className={`p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-pink-500 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer text-center ${
             idx === 0 ? 'animate-slideInLeft' : idx === 2 ? 'animate-slideInRight' : 'animate-fadeInUp'
           }`} style={{animationDelay: `${idx * 0.2}s`}}>
@@ -40,7 +44,7 @@ const Features: FC<FeaturesProps> = ({ items }) => (
               Ver artículos →
             </div>
           </div>
-        </Link>
+        </button>
       ))}
     </div>
   </section>
