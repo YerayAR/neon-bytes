@@ -1,5 +1,5 @@
 'use client';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Card from './Card';
@@ -121,4 +121,10 @@ const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
   );
 };
 
-export default ArchiveList;
+const ArchiveListWrapper: FC<ArchiveListProps> = ({ items }) => (
+  <Suspense fallback={<div className="text-center py-12"><div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div></div>}>
+    <ArchiveList items={items} />
+  </Suspense>
+);
+
+export default ArchiveListWrapper;
