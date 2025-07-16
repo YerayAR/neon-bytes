@@ -14,7 +14,14 @@ const features = [
   { icon: <>🚀</>, title: 'Tendencias', text: 'Lo último en innovación.' },
 ];
 
-const archive: ArchiveItem[] = [];
+const archive: ArchiveItem[] = [
+  {
+    id: 'edicion-1',
+    date: '2025-07-14',
+    title: 'Edición 1',
+    excerpt: 'Artículos destacados de Abril – Julio 2025.',
+  },
+];
 
 export default function Home() {
   const formRef = useRef<HTMLDivElement>(null);
