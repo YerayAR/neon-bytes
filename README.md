@@ -30,3 +30,5 @@ El proyecto se despliega automáticamente en Vercel mediante GitHub Actions.
 ## Contribución
 
 ¡Contribuciones son bienvenidas! No dudes en abrir un issue o crear una PR para añadir más contenido o mejorar las funcionalidades.
+
+<!-- v1.0.0 - Fixed deployment issues -->
