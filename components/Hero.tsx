@@ -15,7 +15,7 @@ const Hero: FC<HeroProps> = ({ onSubscribeClick }) => (
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-600/20 to-transparent opacity-25 pointer-events-none"></div>
     
     {/* Burbujas flotantes */}
-    <FloatingBubbles count={20} />
+    <FloatingBubbles count={8} />
     
     <div className="max-w-4xl mx-auto z-10 relative">
       <div className="mb-4">

@@ -27,10 +27,10 @@ const FloatingBubbles: FC<FloatingBubblesProps> = ({
       for (let i = 0; i < count; i++) {
         newBubbles.push({
           id: i,
-          size: Math.random() * 12 + 4, // 4px to 16px
+          size: Math.random() * 10 + 6, // 6px to 16px
           left: Math.random() * 100, // 0% to 100%
-          delay: Math.random() * 5, // 0s to 5s delay
-          duration: Math.random() * 10 + 8, // 8s to 18s duration
+          delay: Math.random() * 8, // 0s to 8s delay
+          duration: Math.random() * 15 + 12, // 12s to 27s duration
           color: colors[Math.floor(Math.random() * colors.length)]
         });
       }
@@ -45,7 +45,7 @@ const FloatingBubbles: FC<FloatingBubblesProps> = ({
       {bubbles.map((bubble) => (
         <div
           key={bubble.id}
-          className={`absolute rounded-full opacity-20 ${bubble.color} animate-float`}
+          className={`absolute rounded-full opacity-30 ${bubble.color} animate-float`}
           style={{
             width: `${bubble.size}px`,
             height: `${bubble.size}px`,
