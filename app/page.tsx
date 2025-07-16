@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from 'react';
 import Hero from '../components/Hero';
 import Features from '../components/Features';

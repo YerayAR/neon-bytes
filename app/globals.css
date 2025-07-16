@@ -1,4 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body { @apply bg-[#111] text-gray-200 font-sans; }
+
+body {
+  @apply bg-gray-900 text-gray-200 font-sans;
+}
