@@ -16,6 +16,8 @@ export interface ArchiveItem {
 
 interface ArchiveListProps {
   items: ArchiveItem[];
+  selectedFilter: string;
+  onFilterChange: (filter: string) => void;
 }
 
 const itemAnim = {
@@ -23,8 +25,7 @@ const itemAnim = {
   show: { opacity: 1, y: 0 },
 };
 
-const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
-  const [type, setType] = useState('all');
+const ArchiveList: FC<ArchiveListProps> = ({ items, selectedFilter, onFilterChange }) => {
   const [loading, setLoading] = useState(false);
 
   const types = Array.from(new Set(items.map((i) => i.type)));
@@ -33,11 +34,11 @@ const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
     counts[t] = items.filter((i) => i.type === t).length;
   });
 
-  const filtered = type === 'all' ? items : items.filter((i) => i.type === type);
+  const filtered = selectedFilter === 'all' ? items : items.filter((i) => i.type === selectedFilter);
 
   const handleChange = (value: string) => {
     setLoading(true);
-    setType(value);
+    onFilterChange(value);
     setTimeout(() => setLoading(false), 300);
   };
 
@@ -60,7 +61,7 @@ const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
           <button
             onClick={() => handleChange('all')}
             className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
-              type === 'all'
+              selectedFilter === 'all'
                 ? 'bg-pink-600 text-white shadow-lg'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
             }`}
@@ -72,7 +73,7 @@ const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
               key={t}
               onClick={() => handleChange(t)}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
-                type === t
+                selectedFilter === t
                   ? 'bg-pink-600 text-white shadow-lg'
                   : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
               }`}

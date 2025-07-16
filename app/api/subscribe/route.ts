@@ -1,6 +1,36 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { addSubscriber, Subscriber } from '../../../lib/subscribers';
 import { z } from 'zod';
+import nodemailer from 'nodemailer';
+
+// Configurar el transportador de email
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER || 'neonbytes.newsletter@gmail.com',
+    pass: process.env.EMAIL_PASS || 'your-app-password'
+  }
+});
+
+// Función para enviar email
+async function sendEmail(to: string, subject: string, text: string) {
+  try {
+    const mailOptions = {
+      from: process.env.EMAIL_USER || 'neonbytes.newsletter@gmail.com',
+      to,
+      subject,
+      text,
+      html: `<pre>${text}</pre>`
+    };
+    
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email enviado:', info.messageId);
+    return info;
+  } catch (error) {
+    console.error('Error enviando email:', error);
+    throw error;
+  }
+}
 
 const schema = z.object({
   name: z.string().min(1),
@@ -47,8 +77,8 @@ export async function POST(req: NextRequest) {
     console.log('Mensaje:', body);
     console.log('=======================');
     
-    // TODO: Integrar con servicio de email real (SendGrid, Nodemailer, etc.)
-    // await sendEmail(adminEmail, subject, body);
+    // Enviar email real
+    await sendEmail(adminEmail, subject, body);
     
   } catch (error) {
     console.error('Error al enviar notificación:', error);

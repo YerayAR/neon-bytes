@@ -11,12 +11,13 @@ interface Feature {
 
 interface FeaturesProps {
   items: Feature[];
+  onFilterChange: (filterType: string) => void;
 }
 
 /**
  * Muestra características de la newsletter con enlaces a tipos de artículos.
  */
-const Features: FC<FeaturesProps> = ({ items }) => (
+const Features: FC<FeaturesProps> = ({ items, onFilterChange }) => (
   <section className="py-16 px-4 max-w-6xl mx-auto relative overflow-hidden">
     {/* Burbujas flotantes */}
     <FloatingBubbles count={10} colors={['bg-blue-500', 'bg-cyan-500', 'bg-blue-400', 'bg-cyan-400']} />
@@ -31,7 +32,7 @@ const Features: FC<FeaturesProps> = ({ items }) => (
       {items.map((f, idx) => (
         <button 
           key={idx} 
-          onClick={() => document.getElementById('articles')?.scrollIntoView({ behavior: 'smooth' })} 
+          onClick={() => onFilterChange(f.type)} 
           className="group"
         >
           <div className={`p-6 bg-gray-800 rounded-lg border border-gray-700 hover:border-pink-500 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer text-center ${

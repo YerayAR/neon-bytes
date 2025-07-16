@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ArchiveList, { ArchiveItem } from '../components/ArchiveList';
@@ -109,12 +109,19 @@ const archive: ArchiveItem[] = [
 
 export default function Home() {
   const formRef = useRef<HTMLDivElement>(null);
+  const [selectedFilter, setSelectedFilter] = useState('all');
+
+  const handleFilterChange = (filterType: string) => {
+    setSelectedFilter(filterType);
+    // Scroll to articles section
+    document.getElementById('articles')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <main>
       <Hero onSubscribeClick={() => formRef.current?.scrollIntoView()} />
-      <Features items={features} />
-      <ArchiveList items={archive} />
+      <Features items={features} onFilterChange={handleFilterChange} />
+      <ArchiveList items={archive} selectedFilter={selectedFilter} onFilterChange={setSelectedFilter} />
       <About text="Proyecto dedicado a compartir novedades del mundo tech." />
       <div ref={formRef}>
         <SubscribeForm onSuccess={() => null} />
