@@ -46,7 +46,16 @@ const SubscribeForm: FC<SubscribeFormProps> = ({ onSuccess }) => {
     e.preventDefault();
     try {
       await schema.validate(form);
-      // TODO: llamar a API
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || 'Error');
+      }
+      setError('');
       onSuccess();
     } catch (err: any) {
       setError(err.message);
