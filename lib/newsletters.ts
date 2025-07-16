@@ -9,11 +9,11 @@ export function getNewsletterDir() {
 export function getAllEditionIds(): string[] {
   return fs
     .readdirSync(getNewsletterDir())
-    .filter((f) => f.endsWith('.md'))
-    .map((f) => f.replace(/\.md$/, ''));
+    .filter((f) => f.endsWith('.mdx'))
+    .map((f) => f.replace(/\.mdx$/, ''));
 }
 
 export function getEditionMeta(id: string): FrontMatter {
-  const file = fs.readFileSync(path.join(getNewsletterDir(), `${id}.md`), 'utf8');
+  const file = fs.readFileSync(path.join(getNewsletterDir(), `${id}.mdx`), 'utf8');
   return parseFrontMatter(file).data;
 }

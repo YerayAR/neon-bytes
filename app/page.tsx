@@ -19,7 +19,7 @@ const archive: ArchiveItem[] = [
     id: 'edicion-1',
     date: '2025-07-14',
     title: 'Edición 1',
-    excerpt: 'Artículos destacados de Abril – Julio 2025.',
+    excerpt: 'Artículos destacados de Abril – Julio 2025. Incluye Node.js 24, ECMAScript 2025, Next.js 15.4 y más.',
   },
 ];
 
