@@ -1,17 +1,44 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import ArchiveList from '../ArchiveList';
 
-test('muestra elementos de archivo y permite navegar', () => {
+const replace = jest.fn();
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({ replace }),
+  useSearchParams: () => ({ get: () => null, toString: () => '' }),
+}));
+
+test('filtra elementos por tipo y actualiza la URL', () => {
   render(
     <ArchiveList
       items={[
-        { id: 'ed1', date: '2024-01-01', title: 'Ed1', excerpt: '...' },
-        { id: 'ed2', date: '2025-01-01', title: 'Ed2', excerpt: '...' },
+        {
+          id: '1',
+          type: 'tutorial',
+          date: '2024-01-01',
+          title: 'Tut',
+          excerpt: '...',
+          source: 'src',
+          link: '#',
+        },
+        {
+          id: '2',
+          type: 'noticia',
+          date: '2024-01-02',
+          title: 'Not',
+          excerpt: '...',
+          source: 'src',
+          link: '#',
+        },
       ]}
     />
   );
-  expect(screen.getByText(/Ed1/)).toBeInTheDocument();
-  fireEvent.change(screen.getByLabelText('Filtrar por año'), { target: { value: '2025' } });
-  expect(screen.queryByText(/Ed1/)).not.toBeInTheDocument();
-  expect(screen.getByText(/Ed2/)).toBeInTheDocument();
+  expect(screen.getByText(/Tut/)).toBeInTheDocument();
+  expect(screen.getByText('Tutorial (1)')).toBeInTheDocument();
+  expect(screen.getAllByRole('listitem').length).toBe(2);
+  fireEvent.change(screen.getByLabelText('Filtrar por tipo'), {
+    target: { value: 'noticia' },
+  });
+  expect(screen.queryByText(/Tut/)).not.toBeInTheDocument();
+  expect(screen.getByText(/Not/)).toBeInTheDocument();
+  expect(replace).toHaveBeenCalledWith('?type=noticia', { scroll: false });
 });
