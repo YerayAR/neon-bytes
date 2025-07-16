@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import FloatingBubbles from './FloatingBubbles';
 
 interface HeroProps {
   onSubscribeClick: () => void;
@@ -13,11 +14,8 @@ const Hero: FC<HeroProps> = ({ onSubscribeClick }) => (
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-pink-600/20 to-transparent opacity-25 pointer-events-none"></div>
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-600/20 to-transparent opacity-25 pointer-events-none"></div>
     
-    {/* Partículas flotantes */}
-    <div className="absolute top-10 left-10 w-4 h-4 bg-pink-500 rounded-full opacity-50 animate-pulse"></div>
-    <div className="absolute top-20 right-20 w-2 h-2 bg-purple-500 rounded-full opacity-70 animate-bounce"></div>
-    <div className="absolute bottom-20 left-20 w-3 h-3 bg-pink-400 rounded-full opacity-60 animate-pulse"></div>
-    <div className="absolute bottom-10 right-10 w-2 h-2 bg-purple-400 rounded-full opacity-50 animate-bounce"></div>
+    {/* Burbujas flotantes */}
+    <FloatingBubbles count={20} />
     
     <div className="max-w-4xl mx-auto z-10 relative">
       <div className="mb-4">

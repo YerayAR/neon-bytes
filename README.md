@@ -18,7 +18,9 @@
 ## 📰 Última Edición
 
 ### 📅 Edición 1 - Julio 2025
-**🔗 [Leer en línea](https://neon-bytes.vercel.app/newsletters/edicion-1)**
+**🔗 [Ver proyecto en vivo](https://neon-bytes-f1k3fluic-yerays-projects-0617076e.vercel.app)**
+
+**📖 [Leer newsletter](https://neon-bytes-f1k3fluic-yerays-projects-0617076e.vercel.app/newsletters/edicion-1)**
 
 **✨ Contenido destacado:**
 - 🟢 **Node.js 24**: Nueva versión Current con V8 v13.6 y npm 11 integrado

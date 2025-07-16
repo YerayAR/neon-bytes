@@ -3,6 +3,7 @@ import { FC, useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Card from './Card';
+import FloatingBubbles from './FloatingBubbles';
 
 export interface ArchiveItem {
   id: string;
@@ -54,10 +55,13 @@ const ArchiveList: FC<ArchiveListProps> = ({ items }) => {
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
   return (
-    <section id="articles" className="py-16 px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-white mb-4">Edición Uno</h2>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+    <section id="articles" className="py-16 px-4 max-w-7xl mx-auto relative overflow-hidden">
+      {/* Burbujas flotantes */}
+      <FloatingBubbles count={12} colors={['bg-yellow-500', 'bg-orange-500', 'bg-yellow-400', 'bg-orange-400']} />
+      
+      <div className="text-center mb-12 relative z-10">
+        <h2 className="text-4xl font-bold text-white mb-4 animate-fadeInUp">Edición Uno</h2>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto animate-fadeInUp" style={{animationDelay: '0.2s'}}>
           Artículos destacados de abril a julio 2025 - Las últimas novedades del mundo tech
         </p>
       </div>

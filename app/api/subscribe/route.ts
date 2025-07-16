@@ -23,5 +23,36 @@ export async function POST(req: NextRequest) {
   // Cast to Subscriber type since validation passed
   const subscriberData = result.data as Subscriber;
   await addSubscriber(subscriberData);
+  
+  // Enviar notificación por email al admin
+  try {
+    const adminEmail = 'yera217@gmail.com';
+    const subject = `Nueva suscripción a NeonBytes: ${subscriberData.email}`;
+    const body = `
+      ¡Nueva suscripción a NeonBytes!
+      
+      Nombre: ${subscriberData.name}
+      Email: ${subscriberData.email}
+      Profesión: ${subscriberData.profession}
+      Intereses: ${subscriberData.interests.join(', ')}
+      Fecha: ${new Date().toLocaleString('es-ES')}
+      
+      Saludos,
+      Sistema NeonBytes
+    `;
+    
+    console.log('=== NUEVA SUSCRIPCIÓN ===');
+    console.log('Notificación para:', adminEmail);
+    console.log('Asunto:', subject);
+    console.log('Mensaje:', body);
+    console.log('=======================');
+    
+    // TODO: Integrar con servicio de email real (SendGrid, Nodemailer, etc.)
+    // await sendEmail(adminEmail, subject, body);
+    
+  } catch (error) {
+    console.error('Error al enviar notificación:', error);
+  }
+  
   return NextResponse.json({ ok: true });
 }
