@@ -10,6 +10,7 @@ const withMDX = require('@next/mdx')({
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['tsx', 'ts', 'md', 'mdx'],
+  // Deployment marker: 2025-07-16T10:42:00Z
 };
 
 module.exports = withMDX(nextConfig);
