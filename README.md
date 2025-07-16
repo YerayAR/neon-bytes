@@ -13,6 +13,7 @@
 </div>
 
 ---
+> **Gestor de paquetes:** Este proyecto usa [pnpm](https://pnpm.io) de forma predeterminada. Puedes usar `npm` si lo prefieres.
 
 ## 📰 Última Edición
 
