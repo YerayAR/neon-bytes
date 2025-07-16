@@ -16,10 +16,31 @@ const features = [
 
 const archive: ArchiveItem[] = [
   {
-    id: 'edicion-1',
+    id: 't1',
+    type: 'tutorial',
+    date: '2025-06-11',
+    title: 'Moving Highlight Navigation Bar',
+    excerpt: 'Tutorial para resaltar elementos con la View Transition API.',
+    source: 'Smashing Magazine',
+    link: '#',
+  },
+  {
+    id: 'n1',
+    type: 'noticia',
     date: '2025-07-14',
-    title: 'Edición 1',
-    excerpt: 'Artículos destacados de Abril – Julio 2025. Incluye Node.js 24, ECMAScript 2025, Next.js 15.4 y más.',
+    title: 'Next.js 15.4',
+    excerpt: 'Enfoque en rendimiento y compatibilidad total con Turbopack.',
+    source: 'Blog Next.js',
+    link: '#',
+  },
+  {
+    id: 'r1',
+    type: 'recomendacion',
+    date: '2025-04-01',
+    title: 'Vercel CLI',
+    excerpt: 'Herramienta para desplegar proyectos con facilidad.',
+    source: 'Vercel',
+    link: '#',
   },
 ];
 
