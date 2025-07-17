@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
   
   // Enviar notificación por email al admin
   try {
-    const adminEmail = 'yera217@gmail.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'yera217@gmail.com';
     const subject = `Nueva suscripción a NeonBytes: ${subscriberData.email}`;
     const body = `
       ¡Nueva suscripción a NeonBytes!

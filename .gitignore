@@ -2,3 +2,9 @@ node_modules
 .next
 out
 .vercel
+
+# Variables de entorno
+.env.local
+.env
+.env.production
+.env.development
