@@ -4,7 +4,15 @@ import NewsletterPage from '../../../components/NewsletterPage';
 import { NextSeo } from 'next-seo';
 
 // Define meta information directly since we can't use fs in client components
-const editionMeta = {
+type EditionMeta = {
+  id: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  authors: string[];
+};
+
+const editionMeta: Record<string, EditionMeta> = {
   'edicion-1': {
     id: 'edicion-1',
     title: 'Edición 1',
