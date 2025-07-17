@@ -6,35 +6,55 @@ excerpt: "Artículos destacados Abril–Julio 2025 (segunda edición)"
 authors: ["Equipo NeonBytes"]
 ---
 
-'use client'
+## Editorial
 
-import { useState } from 'react'
-import ArchiveList, { ArchiveItem } from '../components/ArchiveList'
-import NeonCentelleante from '../components/NeonCentelleante'
+Bienvenidos a la segunda edición de NeonBytes, con los artículos más relevantes del ecosistema tecnológico.
 
-const articles: ArchiveItem[] = [
-  { id: 'n1', type: 'noticia', date: '2025-05-10', title: 'OpenAI Releases GPT-5', excerpt: 'Nueva versión del modelo con mejor razonamiento y compresión.', source: 'OpenAI Blog', link: 'https://openai.com/blog/gpt-5' },
-  { id: 'n2', type: 'noticia', date: '2025-06-01', title: 'Chrome 120 Adds WebGPU 2', excerpt: 'El navegador habilita la segunda generación de WebGPU para gráficos avanzados.', source: 'Chromium Blog', link: 'https://blog.chromium.org' },
-  { id: 'n3', type: 'noticia', date: '2025-07-02', title: 'React 19 Beta Introduces Offscreen', excerpt: 'Nueva API Offscreen para mejorar rendimiento en aplicaciones pesadas.', source: 'React Blog', link: 'https://react.dev/blog' },
-  { id: 'n4', type: 'noticia', date: '2025-04-22', title: 'WebAssembly GC Standard Completed', excerpt: 'El comité aprueba el soporte de garbage collection en WebAssembly.', source: 'W3C', link: 'https://www.w3.org' },
-  { id: 'n5', type: 'noticia', date: '2025-06-20', title: 'AWS Launches Quantum Cloud Service', excerpt: 'Amazon presenta un servicio de computación cuántica bajo demanda.', source: 'AWS News', link: 'https://aws.amazon.com/blogs/aws' },
-  { id: 'n6', type: 'noticia', date: '2025-07-05', title: 'Rust 1.80 Gains Async FFI', excerpt: 'La versión 1.80 incorpora compatibilidad async en FFI.', source: 'Rust Blog', link: 'https://blog.rust-lang.org' },
-  { id: 't1', type: 'tutorial', date: '2025-05-15', title: 'Building Real-time Apps with Bun', excerpt: 'Tutorial para crear backends ultrarrápidos usando Bun.', source: 'Bun Docs', link: 'https://bun.sh/docs' },
-  { id: 't2', type: 'tutorial', date: '2025-06-28', title: 'Server Actions in Next.js 15', excerpt: 'Guía práctica de las nuevas Server Actions de Next.js.', source: 'Vercel', link: 'https://nextjs.org/docs' },
-  { id: 't3', type: 'tutorial', date: '2025-07-12', title: 'Mastering Tailwind CSS 4.0', excerpt: 'Consejos para aprovechar las novedades de Tailwind 4.0.', source: 'Tailwind Labs', link: 'https://tailwindcss.com/blog' },
-  { id: 'r1', type: 'recomendacion', date: '2025-04-30', title: 'GitHub CLI 3.0: The Complete Toolkit', excerpt: 'Gestiona tus repositorios desde la terminal con nuevas capacidades.', source: 'GitHub', link: 'https://github.com/cli/cli/releases' }
-]
+## Noticias destacadas
 
-function Articles() {
-  const [filter, setFilter] = useState('all')
-  return <ArchiveList items={articles} selectedFilter={filter} onFilterChange={setFilter} />
-}
+### TypeScript 5.9 supports deferred module evaluation
 
-<NeonCentelleante duration={1500} intensity={1.3} />
+TypeScript 5.9 (beta) introduce la evaluación diferida de módulos de ECMAScript mediante la nueva sintaxis `import defer`. [Leer más](https://www.infoworld.com/article/4020579/typescript-5-9-supports-deferred-module-evaluation.html)
 
-## Artículos destacados
+### Deno 2.4 restores JavaScript bundling subcommand
 
-<Articles />
+Deno 2.4 restablece el comando `deno bundle` para generar *bundles* JavaScript de un solo archivo. [Leer más](https://www.infoworld.com/article/4018342/deno-2-4-restores-javascript-bundling-subcommand.html)
+
+### Visual Studio Code bolsters Copilot Chat, MCP support
+
+Visual Studio Code 1.102 amplía las capacidades de GitHub Copilot Chat y finaliza el soporte para MCP. [Leer más](https://www.infoworld.com/article/4021110/visual-studio-code-bolsters-copilot-chat-mcp-support.html)
+
+## Tutoriales
+
+### Building An Offline-Friendly Image Upload System
+
+Tutorial paso a paso para construir un sistema de subida de imágenes que funcione **offline**. [Leer más](https://www.smashingmagazine.com/2025/04/building-offline-friendly-image-upload-system/)
+
+### Using Manim For Making UI Animations
+
+Introducción a **Manim** para crear animaciones dinámicas que ayudan a explicar conceptos de forma visual. [Leer más](https://www.smashingmagazine.com/2025/04/using-manim-making-ui-animations/)
+
+### CSS Blob Recipes
+
+Exploración de varios métodos para generar formas tipo “blob” con CSS. [Leer más](https://css-tricks.com/css-blob-recipes/)
+
+## Herramientas recomendadas
+
+### ECMAScript 2025: The best new features in JavaScript
+
+Repaso a las nuevas funcionalidades incluidas en el estándar **ECMAScript 2025**. [Leer más](https://www.infoworld.com/article/4021944/ecmascript-2025-the-best-new-features-in-javascript.html)
+
+### KelpUI
+
+Presentación de **KelpUI**, un nuevo micro-framework UI con Web Components. [Leer más](https://css-tricks.com/kelpui/)
+
+### Fostering An Accessibility Culture
+
+Reflexiones sobre cómo fomentar una cultura de **accesibilidad** en entornos de desarrollo. [Leer más](https://www.smashingmagazine.com/2025/04/fostering-accessibility-culture/)
+
+### 4 tips for getting started with free-threaded Python
+
+Cuatro consejos para comenzar a aprovechar el nuevo modo **"sin GIL"** de Python 3.13. [Leer más](https://www.infoworld.com/article/4018856/4-tips-for-getting-started-with-free-threaded-python.html)
 
 ## Cierre
 
