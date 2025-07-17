@@ -56,6 +56,9 @@
 git clone https://github.com/YerayAR/neon-bytes.git
 cd neon-bytes
 
+# Copiar variables de entorno de ejemplo
+cp .env.example .env.local
+
 # Instalar dependencias
 pnpm install
 # o
