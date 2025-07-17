@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Link from 'next/link';
 import MatrixRain from './MatrixRain';
 
 interface HeroProps {
@@ -46,6 +47,37 @@ const Hero: FC<HeroProps> = ({ onSubscribeClick }) => (
         >
           Ver Artículos
         </button>
+      </div>
+      
+      {/* Selector de Ediciones */}
+      <div className="mt-8 p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700">
+        <h3 className="text-lg font-bold text-white mb-4 text-center">📚 Ediciones Disponibles</h3>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link
+            href="/newsletters/edicion-1"
+            className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 text-center no-underline"
+          >
+            <div className="flex items-center justify-center gap-2">
+              <span>📖</span>
+              <div>
+                <div className="font-semibold">Edición 1</div>
+                <div className="text-xs opacity-90">Julio 2025</div>
+              </div>
+            </div>
+          </Link>
+          <Link
+            href="/newsletters/edicion-2"
+            className="group bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25 text-center no-underline"
+          >
+            <div className="flex items-center justify-center gap-2">
+              <span>📖</span>
+              <div>
+                <div className="font-semibold">Edición 2</div>
+                <div className="text-xs opacity-90">Julio 2025</div>
+              </div>
+            </div>
+          </Link>
+        </div>
       </div>
       
       <div className="mt-12 flex justify-center space-x-8 text-sm text-gray-400">

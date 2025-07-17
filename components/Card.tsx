@@ -12,6 +12,7 @@ const getTypeColor = (type: string) => {
     case 'noticia': return 'bg-blue-600/20 text-blue-400 border-blue-600/50';
     case 'tutorial': return 'bg-green-600/20 text-green-400 border-green-600/50';
     case 'recomendacion': return 'bg-purple-600/20 text-purple-400 border-purple-600/50';
+    case 'newsletter': return 'bg-pink-600/20 text-pink-400 border-pink-600/50';
     default: return 'bg-gray-600/20 text-gray-400 border-gray-600/50';
   }
 };
