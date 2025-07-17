@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from 'react';
+import { NextSeo } from 'next-seo';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ArchiveList, { ArchiveItem } from '../components/ArchiveList';
@@ -118,15 +119,22 @@ export default function Home() {
   };
 
   return (
-    <main>
-      <Hero onSubscribeClick={() => formRef.current?.scrollIntoView()} />
-      <Features items={features} onFilterChange={handleFilterChange} />
-      <ArchiveList items={archive} selectedFilter={selectedFilter} onFilterChange={setSelectedFilter} />
-      <About text="Proyecto dedicado a compartir novedades del mundo tech." />
-      <div ref={formRef}>
-        <SubscribeForm onSuccess={() => null} />
-      </div>
-      <Footer year={new Date().getFullYear()} />
-    </main>
+    <>
+      <NextSeo title="Inicio" />
+      <main>
+        <Hero onSubscribeClick={() => formRef.current?.scrollIntoView()} />
+        <Features items={features} onFilterChange={handleFilterChange} />
+        <ArchiveList
+          items={archive}
+          selectedFilter={selectedFilter}
+          onFilterChange={setSelectedFilter}
+        />
+        <About text="Proyecto dedicado a compartir novedades del mundo tech." />
+        <div ref={formRef}>
+          <SubscribeForm onSuccess={() => null} />
+        </div>
+        <Footer year={new Date().getFullYear()} />
+      </main>
+    </>
   );
 }
