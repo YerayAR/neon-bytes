@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ArchiveList, { ArchiveItem } from '../components/ArchiveList';
-import NewsletterSection from '../components/NewsletterSection';
 import About from '../components/About';
 import Footer from '../components/Footer';
 import SubscribeForm from '../components/SubscribeForm';
@@ -16,7 +15,8 @@ const features = [
   { icon: <>💡</>, title: 'Recomendaciones', text: 'Herramientas y recursos esenciales.', type: 'recomendacion' },
 ];
 
-const archive: ArchiveItem[] = [
+// Edición 1
+const edicion1: ArchiveItem[] = [
   {
     id: 'n1',
     type: 'noticia',
@@ -109,9 +109,107 @@ const archive: ArchiveItem[] = [
   },
 ];
 
+// Edición 2
+const edicion2: ArchiveItem[] = [
+  {
+    id: 'n1_e2',
+    type: 'noticia',
+    date: '2025-07-11',
+    title: 'TypeScript 5.9 supports deferred module evaluation',
+    excerpt: 'TypeScript 5.9 (beta) introduce la evaluación diferida de módulos de ECMAScript mediante la nueva sintaxis import defer, permitiendo cargar módulos sin ejecutarlos de inmediato.',
+    source: 'InfoWorld',
+    link: 'https://www.infoworld.com/article/4020579/typescript-5-9-supports-deferred-module-evaluation.html',
+  },
+  {
+    id: 'n2_e2',
+    type: 'noticia',
+    date: '2025-07-07',
+    title: 'Deno 2.4 restores JavaScript bundling subcommand',
+    excerpt: 'Deno 2.4 restablece el comando deno bundle para generar bundles JavaScript de un solo archivo. También estabiliza la integración de OpenTelemetry y añade deno update.',
+    source: 'InfoWorld',
+    link: 'https://www.infoworld.com/article/4018342/deno-2-4-restores-javascript-bundling-subcommand.html',
+  },
+  {
+    id: 'n3_e2',
+    type: 'noticia',
+    date: '2025-07-11',
+    title: 'Visual Studio Code bolsters Copilot Chat, MCP support',
+    excerpt: 'Visual Studio Code 1.102 amplía las capacidades de GitHub Copilot Chat y finaliza el soporte para el Model Context Protocol (MCP) en el editor.',
+    source: 'InfoWorld',
+    link: 'https://www.infoworld.com/article/4021110/visual-studio-code-bolsters-copilot-chat-mcp-support.html',
+  },
+  {
+    id: 't1_e2',
+    type: 'tutorial',
+    date: '2025-04-23',
+    title: 'Building An Offline-Friendly Image Upload System',
+    excerpt: 'Tutorial paso a paso para construir un sistema de subida de imágenes que funcione offline, usando tecnologías PWA como IndexedDB, service workers y Background Sync.',
+    source: 'Smashing Magazine',
+    link: 'https://www.smashingmagazine.com/2025/04/building-offline-friendly-image-upload-system/',
+  },
+  {
+    id: 't2_e2',
+    type: 'tutorial',
+    date: '2025-04-08',
+    title: 'Using Manim For Making UI Animations',
+    excerpt: 'Introducción a Manim, una biblioteca de Python para crear animaciones dinámicas que ayudan a explicar conceptos de forma visual e interactiva.',
+    source: 'Smashing Magazine',
+    link: 'https://www.smashingmagazine.com/2025/04/using-manim-making-ui-animations/',
+  },
+  {
+    id: 't3_e2',
+    type: 'tutorial',
+    date: '2025-06-27',
+    title: 'CSS Blob Recipes',
+    excerpt: 'Exploración de varios métodos para generar formas tipo "blob" (manchas orgánicas) con CSS, evaluando cada enfoque según criterios de diseño.',
+    source: 'CSS-Tricks',
+    link: 'https://css-tricks.com/css-blob-recipes/',
+  },
+  {
+    id: 'r1_e2',
+    type: 'recomendacion',
+    date: '2025-07-16',
+    title: 'ECMAScript 2025: The best new features in JavaScript',
+    excerpt: 'Repaso a las nuevas funcionalidades incluidas en el estándar ECMAScript 2025 de JavaScript, que agrega mejoras en Set, expresiones regulares y más.',
+    source: 'InfoWorld',
+    link: 'https://www.infoworld.com/article/4021944/ecmascript-2025-the-best-new-features-in-javascript.html',
+  },
+  {
+    id: 'r2_e2',
+    type: 'recomendacion',
+    date: '2025-06-26',
+    title: 'KelpUI',
+    excerpt: 'Presentación de KelpUI, un nuevo micro-framework UI desarrollado por Chris Ferdinandi que utiliza Web Components y CSS moderno.',
+    source: 'CSS-Tricks',
+    link: 'https://css-tricks.com/kelpui/',
+  },
+  {
+    id: 'r3_e2',
+    type: 'recomendacion',
+    date: '2025-04-17',
+    title: 'Fostering An Accessibility Culture',
+    excerpt: 'Reflexiones sobre cómo fomentar una cultura de accesibilidad en entornos de desarrollo grandes, basado en experiencia personal en una gran organización.',
+    source: 'Smashing Magazine',
+    link: 'https://www.smashingmagazine.com/2025/04/fostering-accessibility-culture/',
+  },
+  {
+    id: 'r4_e2',
+    type: 'recomendacion',
+    date: '2025-07-16',
+    title: '4 tips for getting started with free-threaded Python',
+    excerpt: 'Cuatro consejos para comenzar a aprovechar el nuevo modo "sin GIL" introducido en Python 3.13, que permite verdadero paralelismo en Python.',
+    source: 'InfoWorld',
+    link: 'https://www.infoworld.com/article/4018856/4-tips-for-getting-started-with-free-threaded-python.html',
+  },
+];
+
 export default function Home() {
   const formRef = useRef<HTMLDivElement>(null);
   const [selectedFilter, setSelectedFilter] = useState('all');
+  const [selectedEdition, setSelectedEdition] = useState('edicion-1');
+
+  // Obtener artículos de la edición seleccionada
+  const currentArchive = selectedEdition === 'edicion-1' ? edicion1 : edicion2;
 
   const handleFilterChange = (filterType: string) => {
     setSelectedFilter(filterType);
@@ -119,15 +217,21 @@ export default function Home() {
     document.getElementById('articles')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleEditionChange = (edition: string) => {
+    setSelectedEdition(edition);
+    setSelectedFilter('all'); // Reset filter when changing edition
+  };
+
   return (
     <main>
       <Hero onSubscribeClick={() => formRef.current?.scrollIntoView()} />
-      <NewsletterSection />
       <Features items={features} onFilterChange={handleFilterChange} />
       <ArchiveList
-        items={archive}
+        items={currentArchive}
         selectedFilter={selectedFilter}
         onFilterChange={setSelectedFilter}
+        selectedEdition={selectedEdition}
+        onEditionChange={handleEditionChange}
       />
       <About text="Proyecto dedicado a compartir novedades del mundo tech." />
       <div ref={formRef}>
