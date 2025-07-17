@@ -3,26 +3,29 @@ import { addSubscriber, Subscriber } from '../../../lib/subscribers';
 import { z } from 'zod';
 import nodemailer from 'nodemailer';
 
-// Configurar el transportador de email
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER || 'neonbytes.newsletter@gmail.com',
-    pass: process.env.EMAIL_PASS || 'your-app-password'
-  }
-});
+// Variables de entorno requeridas
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
 
 // Función para enviar email
 async function sendEmail(to: string, subject: string, text: string) {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: EMAIL_USER,
+      pass: EMAIL_PASS
+    }
+  });
+
   try {
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'neonbytes.newsletter@gmail.com',
+      from: EMAIL_USER,
       to,
       subject,
       text,
       html: `<pre>${text}</pre>`
     };
-    
+
     const info = await transporter.sendMail(mailOptions);
     console.log('Email enviado:', info.messageId);
     return info;
@@ -44,6 +47,12 @@ const schema = z.object({
  * Endpoint para registrar un nuevo suscriptor.
  */
 export async function POST(req: NextRequest) {
+  if (!EMAIL_USER || !EMAIL_PASS) {
+    return NextResponse.json(
+      { error: 'EMAIL_USER and EMAIL_PASS must be set' },
+      { status: 500 }
+    );
+  }
   const data = await req.json();
   const result = schema.safeParse(data);
   if (!result.success) {

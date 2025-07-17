@@ -62,6 +62,14 @@ pnpm install
 npm install
 ```
 
+Luego copia el archivo de ejemplo de variables de entorno y establece tus
+credenciales de email:
+
+```bash
+cp .env.example .env
+# Edita .env y define EMAIL_USER y EMAIL_PASS
+```
+
 ### Desarrollo
 
 ```bash
