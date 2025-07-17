@@ -16,6 +16,24 @@ const features = [
 
 const archive: ArchiveItem[] = [
   {
+    id: 'edicion-2',
+    type: 'newsletter',
+    date: '2025-07-17',
+    title: 'Edición 2',
+    excerpt: 'Artículos destacados Abril–Julio 2025 (segunda edición)',
+    source: 'NeonBytes',
+    link: '/newsletters/edicion-2',
+  },
+  {
+    id: 'edicion-1',
+    type: 'newsletter',
+    date: '2025-07-14',
+    title: 'Edición 1',
+    excerpt: 'Artículos destacados de Abril – Julio 2025',
+    source: 'NeonBytes',
+    link: '/newsletters/edicion-1',
+  },
+  {
     id: 'n1',
     type: 'noticia',
     date: '2025-05-06',
