@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NewsletterPage from '../../../components/NewsletterPage';
 import { NextSeo } from 'next-seo';
 
@@ -15,7 +15,7 @@ const editionMeta = {
 };
 
 export default function Page({ params }: { params: { edition: string } }) {
-  const [Content, setContent] = useState(null);
+  const [Content, setContent] = useState<React.ComponentType | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
