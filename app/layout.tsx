@@ -1,16 +1,17 @@
 import './globals.css';
 import { ReactNode } from 'react';
 // import { Analytics } from '@vercel/analytics/react';
-import { DefaultSeo } from 'next-seo';
-import SEO, { metadata } from '../next-seo.config';
+import { Metadata } from 'next';
 
-export { metadata };
+export const metadata: Metadata = {
+  title: 'NeonBytes - Newsletter Tecnológica',
+  description: 'La newsletter tecnológica que te conecta con las últimas tendencias'
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es">
       <body className="min-h-screen bg-gray-900 text-gray-200">
-        <DefaultSeo {...SEO} />
         <header className="p-4 text-center text-2xl font-bold text-pink-400">
           NeonBytes
         </header>
