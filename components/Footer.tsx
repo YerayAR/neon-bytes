@@ -20,24 +20,40 @@ const Footer: FC<FooterProps> = ({ year }) => (
       </div>
       
       <div className="flex justify-center space-x-6 mb-8">
-        <a 
-          href="https://github.com/YerayAR/neon-bytes" 
+        <a
+          href="https://github.com/YerayAR/neon-bytes"
           className="text-gray-400 hover:text-pink-400 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
         >
           🐈 GitHub
         </a>
-        <a 
-          href="https://twitter.com" 
+        <a
+          href="https://github.com/YerayAR"
+          className="text-gray-400 hover:text-pink-400 transition-colors duration-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          🐙 YerayAR
+        </a>
+        <a
+          href="https://www.linkedin.com/in/yeray-alonso-reyes-ii/"
+          className="text-gray-400 hover:text-pink-400 transition-colors duration-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          💼 LinkedIn
+        </a>
+        <a
+          href="https://twitter.com"
           className="text-gray-400 hover:text-pink-400 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
         >
           🐦 Twitter
         </a>
-        <a 
-          href="mailto:contact@neonbytes.dev" 
+        <a
+          href="mailto:contact@neonbytes.dev"
           className="text-gray-400 hover:text-pink-400 transition-colors duration-200"
         >
           📧 Contacto
