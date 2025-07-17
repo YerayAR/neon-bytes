@@ -9,7 +9,7 @@ type EditionMeta = {
   title: string;
   date: string;
   excerpt: string;
-  authors: string[];
+  authors: string;
 };
 
 const editionMeta: Record<string, EditionMeta> = {
@@ -18,7 +18,7 @@ const editionMeta: Record<string, EditionMeta> = {
     title: 'Edición 1',
     date: '2025-07-14',
     excerpt: 'Artículos destacados de Abril – Julio 2025',
-    authors: ['Equipo NeonBytes']
+    authors: 'Equipo NeonBytes'
   }
 };
 
