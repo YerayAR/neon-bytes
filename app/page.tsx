@@ -1,9 +1,11 @@
 "use client";
 
 import { useRef, useState } from 'react';
+import Link from 'next/link';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ArchiveList, { ArchiveItem } from '../components/ArchiveList';
+import NewsletterSection from '../components/NewsletterSection';
 import About from '../components/About';
 import Footer from '../components/Footer';
 import SubscribeForm from '../components/SubscribeForm';
@@ -120,6 +122,7 @@ export default function Home() {
   return (
     <main>
       <Hero onSubscribeClick={() => formRef.current?.scrollIntoView()} />
+      <NewsletterSection />
       <Features items={features} onFilterChange={handleFilterChange} />
       <ArchiveList
         items={archive}
