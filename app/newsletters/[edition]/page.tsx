@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import NewsletterPage from '../../../components/NewsletterPage';
-import { NextSeo } from 'next-seo';
 
 // Define meta information directly since we can't use fs in client components
 type EditionMeta = {
@@ -65,11 +64,8 @@ export default function Page({ params }: { params: { edition: string } }) {
   }
 
   return (
-    <>
-      <NextSeo title={meta.title} description={meta.excerpt} />
-      <NewsletterPage meta={meta}>
-        <Content />
-      </NewsletterPage>
-    </>
+    <NewsletterPage meta={meta}>
+      <Content />
+    </NewsletterPage>
   );
 }
