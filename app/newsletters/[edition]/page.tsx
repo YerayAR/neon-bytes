@@ -18,6 +18,13 @@ const editionMeta: Record<string, EditionMeta> = {
     date: '2025-07-14',
     excerpt: 'Artículos destacados de Abril – Julio 2025',
     authors: 'Equipo NeonBytes'
+  },
+  'edicion-2': {
+    id: 'edicion-2',
+    title: 'Edición 2',
+    date: '2025-07-17',
+    excerpt: 'Artículos destacados Abril–Julio 2025 (segunda edición)',
+    authors: 'Equipo NeonBytes'
   }
 };
 
