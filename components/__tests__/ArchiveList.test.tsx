@@ -30,6 +30,8 @@ test('filtra elementos por tipo y actualiza la URL', () => {
           link: '#',
         },
       ]}
+      selectedFilter="all"
+      onFilterChange={() => {}}
     />
   );
   expect(screen.getByText(/Tut/)).toBeInTheDocument();
