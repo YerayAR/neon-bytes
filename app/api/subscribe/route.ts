@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { addSubscriber, Subscriber } from '../../../lib/subscribers';
+import { rateLimit } from '../../../lib/rateLimit';
 import { z } from 'zod';
 import nodemailer from 'nodemailer';
 
@@ -47,12 +48,24 @@ const schema = z.object({
  * Endpoint para registrar un nuevo suscriptor.
  */
 export async function POST(req: NextRequest) {
+
   if (!EMAIL_USER || !EMAIL_PASS) {
     return NextResponse.json(
       { error: 'EMAIL_USER and EMAIL_PASS must be set' },
       { status: 500 }
     );
   }
+
+  const ip =
+    req.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown';
+  if (!rateLimit(ip)) {
+    return NextResponse.json(
+      { error: 'Too many requests' },
+      { status: 429 }
+    );
+  }
+
+
   const data = await req.json();
   const result = schema.safeParse(data);
   if (!result.success) {
