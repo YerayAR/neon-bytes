@@ -5,13 +5,32 @@ import { z } from 'zod';
 import nodemailer from 'nodemailer';
 
 // Configurar el transportador de email
-const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransporter({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER || 'neonbytes.newsletter@gmail.com',
-    pass: process.env.EMAIL_PASS || 'your-app-password'
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  },
+  tls: {
+    rejectUnauthorized: false
   }
 });
+
+// Verificar configuración de email
+const verifyEmailConfig = async () => {
+  try {
+    console.log('Verificando configuración de email...');
+    console.log('EMAIL_USER:', process.env.EMAIL_USER ? 'Configurado' : 'No configurado');
+    console.log('EMAIL_PASS:', process.env.EMAIL_PASS ? 'Configurado' : 'No configurado');
+    
+    await transporter.verify();
+    console.log('✅ Configuración de email verificada correctamente');
+    return true;
+  } catch (error) {
+    console.error('❌ Error en configuración de email:', error);
+    return false;
+  }
+};
 
 // Función para enviar email
 async function sendEmail(to: string, subject: string, text: string) {
@@ -45,6 +64,12 @@ const schema = z.object({
  * Endpoint para registrar un nuevo suscriptor.
  */
 export async function POST(req: NextRequest) {
+  // Verificar configuración de email al inicio
+  const emailConfigOk = await verifyEmailConfig();
+  if (!emailConfigOk) {
+    console.error('❌ Error: Configuración de email no válida');
+  }
+  
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown';
   if (!rateLimit(ip)) {
