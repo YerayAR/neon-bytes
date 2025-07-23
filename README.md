@@ -94,25 +94,16 @@ npm start
 
 ```
 neon-bytes/
-├── 📁 app/                    # App Router de Next.js
-│   ├── 📁 api/                # API Routes
-│   ├── 📁 newsletters/        # Páginas de newsletters
-│   ├── globals.css           # Estilos globales
-│   ├── layout.tsx           # Layout principal
-│   └── page.tsx             # Página de inicio
-├── 📁 components/            # Componentes reutilizables
-│   ├── Hero.tsx             # Sección hero
-│   ├── Features.tsx         # Características
-│   ├── ArchiveList.tsx      # Lista de newsletters
-│   ├── NewsletterPage.tsx   # Página de newsletter
-│   └── ...
-├── 📁 lib/                  # Utilidades y configuración
-│   ├── newsletters.ts       # Gestión de newsletters
-│   ├── subscribers.ts       # Gestión de suscriptores
-│   └── editions.ts          # Metadatos de ediciones
-├── 📁 newsletters/          # Contenido MDX
-│   └── edicion-1.mdx       # Primera edición
-└── 📁 public/              # Archivos estáticos
+├── 📁 src/
+│   ├── 📁 app/                # App Router de Next.js
+│   │   ├── 📁 api/            # Rutas de la API
+│   │   └── ...
+│   ├── 📁 components/        # Componentes reutilizables
+│   ├── 📁 services/          # Lógica y utilidades de backend
+│   ├── 📁 newsletters/       # Archivos MDX de contenido
+│   └── globals.css          # Estilos globales
+├── 📁 tests/                 # Pruebas unitarias
+└── 📄 README.md
 ```
 
 ## 📝 Crear Nueva Newsletter
