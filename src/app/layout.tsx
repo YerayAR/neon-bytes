@@ -9,7 +9,12 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'NeonBytes - Newsletter Tecnológica',
-  description: 'La newsletter tecnológica que te conecta con las últimas tendencias'
+  description: 'La newsletter tecnológica que te conecta con las últimas tendencias',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 /**
