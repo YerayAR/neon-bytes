@@ -1,0 +1,7 @@
+Contact: security@neon-bytes.dev
+Contact: https://github.com/YerayAR/neon-bytes/security/advisories/new
+Expires: 2025-12-31T23:59:59.000Z
+Acknowledgments: https://github.com/YerayAR/neon-bytes/blob/main/SECURITY.md
+Preferred-Languages: en, es
+Canonical: https://neon-bytes.vercel.app/.well-known/security.txt
+Policy: https://github.com/YerayAR/neon-bytes/blob/main/SECURITY.md
