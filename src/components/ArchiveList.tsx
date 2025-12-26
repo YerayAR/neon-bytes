@@ -79,8 +79,8 @@ const ArchiveList: FC<ArchiveListProps> = ({ items, selectedFilter, onFilterChan
           <button
             onClick={() => onEditionChange('edicion-1')}
             className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-200 ${selectedEdition === 'edicion-1'
-                ? 'bg-yellow-500 text-black shadow-lg'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+              ? 'bg-yellow-500 text-black shadow-lg'
+              : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
               }`}
           >
             Edición 1
@@ -88,8 +88,8 @@ const ArchiveList: FC<ArchiveListProps> = ({ items, selectedFilter, onFilterChan
           <button
             onClick={() => onEditionChange('edicion-2')}
             className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-200 ${selectedEdition === 'edicion-2'
-                ? 'bg-yellow-500 text-black shadow-lg'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+              ? 'bg-yellow-500 text-black shadow-lg'
+              : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
               }`}
           >
             Edición 2
@@ -97,11 +97,11 @@ const ArchiveList: FC<ArchiveListProps> = ({ items, selectedFilter, onFilterChan
           <button
             onClick={() => onEditionChange('edicion-3')}
             className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-200 ${selectedEdition === 'edicion-3'
-                ? 'bg-yellow-500 text-black shadow-lg'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+              ? 'bg-yellow-500 text-black shadow-lg'
+              : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
               }`}
           >
-            Edición 3
+            Edición 3 ✨
           </button>
         </div>
       </div>
@@ -111,8 +111,8 @@ const ArchiveList: FC<ArchiveListProps> = ({ items, selectedFilter, onFilterChan
           <button
             onClick={() => handleChange('all')}
             className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${selectedFilter === 'all'
-                ? 'bg-pink-600 text-white shadow-lg'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+              ? 'bg-pink-600 text-white shadow-lg'
+              : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
               }`}
           >
             Todos ({items.length})
@@ -122,8 +122,8 @@ const ArchiveList: FC<ArchiveListProps> = ({ items, selectedFilter, onFilterChan
               key={t}
               onClick={() => handleChange(t)}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${selectedFilter === t
-                  ? 'bg-pink-600 text-white shadow-lg'
-                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                ? 'bg-pink-600 text-white shadow-lg'
+                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
                 }`}
             >
               {capitalize(t)} ({counts[t]})
