@@ -208,16 +208,86 @@ const edicion2: ArchiveItem[] = [
   },
 ];
 
+// Edición 3
+const edicion3: ArchiveItem[] = [
+  {
+    id: 'n1_e3',
+    type: 'noticia',
+    date: '2025-08-01',
+    title: 'Toward a policy for machine-learning tools in kernel development',
+    excerpt: 'Debate en la comunidad del Kernel de Linux sobre cómo y cuándo integrar herramientas de Machine Learning en el flujo de desarrollo, analizando riesgos y beneficios.',
+    source: 'LWN.net',
+    link: 'https://lwn.net/Articles/993223/',
+  },
+  {
+    id: 'n2_e3',
+    type: 'noticia',
+    date: '2025-07-28',
+    title: 'Released KC3 v0.1.16',
+    excerpt: 'Lanzamiento de la versión 0.1.16 de KC3, con mejoras significativas en estabilidad y nuevas funcionalidades para usuarios del lenguaje.',
+    source: 'KC3 Blog',
+    link: 'https://www.kmx.io/en/news/2025/12/25/released-kc3-v0-1-16.html',
+  },
+  {
+    id: 't1_e3',
+    type: 'tutorial',
+    date: '2025-07-25',
+    title: 'Beautiful reprs',
+    excerpt: 'Guía técnica sobre cómo escribir representaciones (__repr__) efectivas y hermosas en Python para mejorar la experiencia de depuración.',
+    source: 'Pythonic',
+    link: 'https://mathspp.com/blog/pydonts/beautiful-reprs',
+  },
+  {
+    id: 't2_e3',
+    type: 'tutorial',
+    date: '2025-07-30',
+    title: 'The HTML Elements Time Forgot',
+    excerpt: 'Un recorrido por elementos HTML oscuros o en desuso que ofrecen funcionalidades interesantes sin necesidad de JavaScript complejo.',
+    source: 'WebDev',
+    link: 'https://htmhell.dev/adventcalendar/2025/22/',
+  },
+  {
+    id: 't3_e3',
+    type: 'tutorial',
+    date: '2025-07-29',
+    title: 'Writing an NES emulator in Haskell',
+    excerpt: 'Implementación detallada de un emulador de NES utilizando Haskell, demostrando el poder de la programación funcional para emulación de hardware.',
+    source: 'Haskell Weekly',
+    link: 'https://github.com/haskell-game/tines',
+  },
+  {
+    id: 'r1_e3',
+    type: 'recomendacion',
+    date: '2025-08-01',
+    title: 'Microarchitecture: What Happens Beneath',
+    excerpt: 'Lectura recomendada para entender los fundamentos de la microarquitectura de CPU moderna y cómo afecta el rendimiento del software.',
+    source: 'Systems Blog',
+    link: 'https://www.youtube.com/watch?v=q6gSC3OxB_8',
+  },
+  {
+    id: 'r2_e3',
+    type: 'recomendacion',
+    date: '2025-07-27',
+    title: 'Ancient Greek geometry',
+    excerpt: 'Exploración fascinante de la geometría clásica griega y sus sorprendentes conexiones con los algoritmos computacionales modernos.',
+    source: 'Math World',
+    link: 'https://greekreporter.com/2025/07/27/ancient-greek-geometry/',
+  },
+];
+
 /**
  * Componente principal que compone la landing page.
  */
 export default function Home() {
   const formRef = useRef<HTMLDivElement>(null);
   const [selectedFilter, setSelectedFilter] = useState('all');
-  const [selectedEdition, setSelectedEdition] = useState('edicion-1');
+  const [selectedEdition, setSelectedEdition] = useState('edicion-3');
 
   // Obtener artículos de la edición seleccionada
-  const currentArchive = selectedEdition === 'edicion-1' ? edicion1 : edicion2;
+  const currentArchive =
+    selectedEdition === 'edicion-1' ? edicion1 :
+      selectedEdition === 'edicion-2' ? edicion2 :
+        edicion3;
 
   // Actualiza filtro seleccionado y hace scroll a la sección de artículos
   const handleFilterChange = (filterType: string) => {
