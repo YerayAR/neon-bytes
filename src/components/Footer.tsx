@@ -19,7 +19,7 @@ const Footer: FC<FooterProps> = ({ year }) => (
           Conectando desarrolladores con la innovación tech
         </p>
       </div>
-      
+
       <div className="flex justify-center space-x-6 mb-8">
         <a
           href="https://github.com/YerayAR/neon-bytes"
@@ -60,9 +60,10 @@ const Footer: FC<FooterProps> = ({ year }) => (
           📧 Contacto
         </a>
       </div>
-      
+
       <div className="text-center text-sm text-gray-500 border-t border-gray-700 pt-6">
         <p>© {year} NeonBytes. Hecho con ❤️ por desarrolladores, para desarrolladores.</p>
+        <p className="text-xs text-gray-700 mt-2">Build: {new Date().toISOString()}</p>
       </div>
     </div>
   </footer>
